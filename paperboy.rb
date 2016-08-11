@@ -9,14 +9,14 @@ def initialize(name, experience = 0, side)
       @side = side
 end
 
-def deliver(start_address, end_address)# do I need to make these instance variables
-  #check experience_sum or just experience
-  @papers_delivered = (end_address-start_address)/2
+def deliver(start_address, end_address)
+  #
+  @papers_delivered = ((end_address-start_address)/2.0).round
   @experience += @papers_delivered
 end
 
-def quota
-  puts "My quota is #{(50 + @experience/2)}"
+def quota()#my_quota = 50
+  puts "My quota is: #{(50 + @experience/2)}"
 end
 
 def earnings
@@ -32,7 +32,7 @@ end
 
 
 def report
-  puts " I'm #{@name}, I've delivered #{@experience} and I've earned #{@earnings} so far!"
+  puts " I'm #{@name}, I've delivered #{@experience} papers and I've earned $#{@earnings} so far!"
 end
 end
 tommy = Paperboy.new("Tommy", "even")
