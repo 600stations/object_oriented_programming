@@ -32,10 +32,13 @@ def left_turn(e_direction)#Not sure how to input
       when "W" then @x_coordinate = @x_coordinate - 1
       when "S" then @y_coordinate = @y_coordinate - 1
     end
-
+# Need way to control rover - psuedo code
     def control
+      if R then right_turn method
+      elsif L then left_turn method
+      elsif M then move method
     end
-
+# Is this in or out of class??
     #Need to determine size of Mars
     puts "What is your max x coordinate? - Enter number greater than 0" #Q1
     max_x_coordinate = gets.chomp.to_i
