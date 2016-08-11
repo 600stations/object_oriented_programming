@@ -6,7 +6,9 @@ class Cat
    end
 
    def eats_at # method dermines if AM or PM
-     if @meal_time <= 11
+     if @meal_time == 12
+        " at #{@meal_time} PM" # this will handle 12:00 noon
+     elsif @meal_time <= 11
         " at #{@meal_time} AM"
      else
        " at #{(@meal_time - 12)} PM" #change from 24 hr clock to AM PM format
@@ -20,8 +22,10 @@ class Cat
 end
 
 c1 = Cat.new("Sparkles", "tuna", 7)#create new instance of class for cat
-c2 = Cat.new("Fluffy", "salmon", 22)
+c2 = Cat.new("Fluffy", "salmon", 12)
+c3 = Cat.new("Max", "cod", 22)
 
 
 c1.meow #calls method for cat 1
 c2.meow#calls method for cat 2
+c3.meow

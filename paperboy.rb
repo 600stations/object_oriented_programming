@@ -1,13 +1,13 @@
 class PaperBoy
-   def initialize(name, experience, side, earnings)#make earnings read only
+   def initialize(name, experience, side)
       @name = name
       @experience= experience
       @side = side
-      @earnings = earnings#make earnings read only
+      attr_reader :earnings
    end
 
 def quota
-  MINIMUM=0
+  MINIMUM=50
   quota = (MINIMUM + @experience/2)
 end
 
@@ -20,14 +20,14 @@ def report
   puts " I'm #{@name}, I've delivered #{@experience} and I've earned #{@earnings} so far!"
 end
 
-p1 = Paperboy.new("Tommy", "even")
-p1.quota # => 50
-p1.deliver(101, 220) # => 17.75
-p1.earnings #=> 17.5
-p1.report
+tommy = Paperboy.new("Tommy", "even")
 
-p2 = Paperboy.new("Bob", "odd")
-p2.quota # =>
-p2.deliver(101, 220) # =>
-p2.earnings #=>
-p2.report
+tommy.quota # => 50
+tommy.deliver(101, 220) # => 17.75
+tommy.earnings #=> 17.5
+tommy.report # => "I'm Tommy, I've delivered 60 papers and I've earned $17.5 so far!"
+
+tommy.quota # => 80
+tommy.deliver(1, 150) # => 18.75
+tommy.earnings #=> 36.25
+tommy.report # => "I'm Tommy, I've been delivered 134 papers and I've earned $36.25 so far!"
