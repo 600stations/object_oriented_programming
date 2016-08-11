@@ -1,4 +1,3 @@
-# MINIMUM = 50
 class Paperboy
 
 attr_reader :earnings
@@ -7,33 +6,38 @@ def initialize(name, experience = 0, side)
       @name = name
       @experience = experience
       @side = side
+      @earnings=0
+end
+
+def quota
+  (50 + @experience/2)
 end
 
 def deliver(start_address, end_address)
-  #
+
   @papers_delivered = ((end_address-start_address)/2.0).round
-  @experience += @papers_delivered
-end
 
-def quota()#my_quota = 50
-  puts "My quota is: #{(50 + @experience/2)}"
-end
+  #-------- added this to deliver method --------
+  if @papers_delivered == quota
+    @earnings += (@papers_delivered * 0.25)
+      puts " 1st: #{@papers_delivered}"
+  elsif @papers_delivered < quota
+    @earnings += (@papers_delivered * 0.25) - 2.0
+      puts " 2nd: #{@papers_delivered}"
+  else @papers_delivered > quota
+    @earnings += (50 * 0.25) + ((@papers_delivered - quota)* 0.5)
+      puts " 3rd: #{@papers_delivered}"
 
-def earnings
-  if @papers_delivered == 50
-    @earnings = (@papers_delivered * 0.25)
-  elsif @papers_delivered < 50
-    @earnings = (@papers_delivered * 0.25) - 2.0
-  else
-    @earnings = (50 * 0.25) + ((@papers_delivered - 50)* 0.5)
   end
+  #--------------------------------
+  @experience += @papers_delivered
+
 end
 
 
-
-def report
-  puts " I'm #{@name}, I've delivered #{@experience} papers and I've earned $#{@earnings} so far!"
-end
+  def report
+    puts " I'm #{@name}, I've delivered #{@experience} papers and I've earned $#{@earnings} so far!"
+  end
 end
 tommy = Paperboy.new("Tommy", "even")
 
