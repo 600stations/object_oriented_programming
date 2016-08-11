@@ -1,19 +1,18 @@
 # MINIMUM = 50
-class PaperBoy
+class Paperboy
 
-  attr_reader :earnings
+attr_reader :earnings
 
 def initialize(name, experience = 0, side)
       @name = name
       @experience = experience
       @side = side
-
 end
 
 def deliver(start_address, end_address)# do I need to make these instance variables
   #check experience_sum or just experience
-  papers_delivered = (end_address-start_address)/2
-  @experience = (@experience + papers_delivered)
+  @papers_delivered = (end_address-start_address)/2
+  @experience += @papers_delivered
 end
 
 def quota
@@ -21,12 +20,12 @@ def quota
 end
 
 def earnings
-  if papers_delivered == 50
-    earnings = (papers_delivered * 0.25)
-  elsif papers_delivered < 50
-    earnings = (papers_delivered * 0.25) - 2.0
+  if @papers_delivered == 50
+    @earnings = (@papers_delivered * 0.25)
+  elsif @papers_delivered < 50
+    @earnings = (@papers_delivered * 0.25) - 2.0
   else
-    earnings = (50 * 0.25) + (papers_delivered)
+    @earnings = (50 * 0.25) + (@papers_delivered)
   end
 end
 
