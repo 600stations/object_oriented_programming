@@ -1,20 +1,36 @@
 class PaperBoy
-   def initialize(name, experience, side)
-      @name = name
-      @experience= experience
-      @side = side
-      attr_reader :earnings
-   end
+  #  def initialize(name, experience, side)
+  #     @name = name
+  #     @experience= experience
+  #     @side = side
+  #     attr_reader :earnings
+  #  end
+  attr_accessor :name
+  attr_accessor :experience
+  attr_accessor :side
+  # attr_reader :earnings
+
+def deliver(start_address, end_address)# do I need to make these instance variables
+  @experience= 0#check experience_sum or just experience
+  papers_delivered = (end_address-start_address)/2
+  @experience = (@experience + papers_delivered)
+end
 
 def quota
   MINIMUM=50
-  quota = (MINIMUM + @experience/2)
+  my_quota = (MINIMUM + @experience/2)
 end
 
-def deliver(start_address, end_address)# do I need to make these instance variables
-  experience_sum = 0#check experience_sum or just experience
-  papers_delivered = (end_address-start_address)
+def earnings
+  if papers_delivered == 50
+    earnings = (papers_delivered * 0.25)
+  elsif papers_delivered < 50
+    earnings = (papers_delivered * 0.25) - 2.0
+  else
+    earnings = (50 * 0.25) + (papers_delivered)
+  end
 end
+
 
 def report
   puts " I'm #{@name}, I've delivered #{@experience} and I've earned #{@earnings} so far!"
