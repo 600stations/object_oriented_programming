@@ -16,7 +16,7 @@ def deliver(start_address, end_address)# do I need to make these instance variab
 end
 
 def quota
-  my_quota = (50 + @experience/2)
+  puts "My quota is #{(50 + @experience/2)}"
 end
 
 def earnings
@@ -25,7 +25,7 @@ def earnings
   elsif @papers_delivered < 50
     @earnings = (@papers_delivered * 0.25) - 2.0
   else
-    @earnings = (50 * 0.25) + (@papers_delivered)
+    @earnings = (50 * 0.25) + ((@papers_delivered - 50)* 0.5)
   end
 end
 
