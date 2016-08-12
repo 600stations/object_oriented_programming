@@ -33,27 +33,26 @@ def left_turn(e_direction)#use placeholder name e_direction
       when e_direction == "S" then @y_coordinate -= 1
     end
 # Need way to control rover - psuedo code - Use case instead?
-    def control
+    def read_instruction
       case control
       when R then right_turn method
       when L then left_turn method
       when M then move method
     end
-# Is this in or out of class??
-    #Need to determine size of Mars
-    puts "What is your max x coordinate? - Enter number greater than 0" #Q1
+# Is this in or out of class?? How can I use this for more than 1 rover? A method?
+    #Need to determine the size of Mars grid
+    puts "What is your maximum x coordinate? - Enter number greater than 0" #Q1
     max_x_coordinate = gets.chomp.to_i
-    puts "What is your max y coordinate? - Enter number greater than 0" #Q2
+    puts "What is your maximum y coordinate? - Enter number greater than 0" #Q2
     max_y_coordinate = gets.chomp.to_i
-
     # Need to determine current position of rover
-    puts "What is your current x coordinate? - Enter number greater than 0" #Q3
-    current_x_coordinate = gets.chomp.to_i
-    puts "What is your current y coordinate? - Enter number greater than 0" #Q4
-    max_y_coordinate = gets.chomp.to_i
-
+    puts "What is your starting x coordinate? - Enter number greater than 0" #Q3
+    start_x_coordinate = gets.chomp.to_i
+    puts "What is your starting y coordinate? - Enter number greater than 0" #Q4
+    start_y_coordinate = gets.chomp.to_i
     # Need to ask for user command R, L, M
     puts "What do you want to do?:" # Q5
-    puts "Enter R for Turn Right, Enter L for Turn Left, Enter M for Move"
+    puts "Enter R for Turn Right, enter L for Turn Left or enter M for Move"
     command = gets.chomp
 end
+#Create new rovers here
