@@ -19,6 +19,7 @@ def right_turn(e_direction)#use placeholder name e_direction
     when e_direction == "S"
        @direction = "W"
   end
+  puts "your location is #{@x_coordinate}, #{@y_coordinate}, you are facing #{@direction}"
 end
 # method to turn rover left
 def left_turn(e_direction)#use placeholder name e_direction
@@ -32,6 +33,7 @@ def left_turn(e_direction)#use placeholder name e_direction
       when e_direction == "S"
         @direction = "E"
       end
+      puts "your location is #{@x_coordinate}, #{@y_coordinate}, you are facing #{@direction}"
 end
   #
   # method to move rover-pseudo code
@@ -46,7 +48,7 @@ end
       when e_direction == "S"
         @y_coordinate -= 1
     end
-    puts "your location is #{@x_coordinate}, #{@_coordinate}"
+    puts "your location is #{@x_coordinate}, #{@y_coordinate}, you are facing #{@direction}"
   end
 # Need way to control rover - psuedo code - Use case instead?
     def read_instruction(driving_instructions)
