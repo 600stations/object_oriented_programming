@@ -8,35 +8,36 @@ def initialize(x_coordinate, y_coordinate,direction)
 end
 
 # method to turn rover right
-def right_turn(e_direction)#Not sure how to input
-  case
-    when "N" then @direction "E" #how do I input starting N,E,W,S?
-    when "E" then @direction "S"
-    when "W" then @direction "N"
-    when "S" then @direction "W"
+def right_turn(e_direction)#use placeholder name e_direction
+  case right_turn
+    when e_direction == "N" then @direction "E"
+    when e_direction == "E" then @direction "S"
+    when e_direction == "W" then @direction "N"
+    when e_direction == "S" then @direction "W"
   end
 # method to turn rover left
-def left_turn(e_direction)#Not sure how to input
-  case
-    when "N" then new @direction "W" #how do I input starting N,E,W,S?
-    when "E" then new @direction "N"
-    when "W" then new @direction "S"
-    when "S" then new @direction "E"
+def left_turn(e_direction)#use placeholder name e_direction
+  case left_turn
+    when e_direction == "N" then new @direction "W"
+    when e_direction == "E" then new @direction "N"
+    when e_direction == "W" then new @direction "S"
+    when e_direction == "S" then new @direction "E"
   end
   #
   # method to move rover-pseudo code
-  def move(e_direction) # pass in direction?
-    case
-      when "N" then @y_coordinate = @y_coordinate + 1
-      when "E" then @x_coordinate = @x_coordinate + 1
-      when "W" then @x_coordinate = @x_coordinate - 1
-      when "S" then @y_coordinate = @y_coordinate - 1
+  def move(e_direction) #use placeholder name e_direction
+    case move
+      when e_direction == "N" then @y_coordinate += 1
+      when e_direction == "E" then @x_coordinate += 1
+      when e_direction == "W" then @x_coordinate -= 1
+      when e_direction == "S" then @y_coordinate -= 1
     end
-# Need way to control rover - psuedo code
+# Need way to control rover - psuedo code - Use case instead?
     def control
-      if R then right_turn method
-      elsif L then left_turn method
-      elsif M then move method
+      case control
+      when R then right_turn method
+      when L then left_turn method
+      when M then move method
     end
 # Is this in or out of class??
     #Need to determine size of Mars
@@ -55,4 +56,4 @@ def left_turn(e_direction)#Not sure how to input
     puts "What do you want to do?:" # Q5
     puts "Enter R for Turn Right, Enter L for Turn Left, Enter M for Move"
     command = gets.chomp
-end`
+end
