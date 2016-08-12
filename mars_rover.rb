@@ -9,7 +9,7 @@ end
 
 # method to turn rover right
 def right_turn(e_direction)#use placeholder name e_direction
-  case right_turn
+  case
     when e_direction == "N"
       @direction = "E"
     when e_direction == "E"
@@ -22,7 +22,7 @@ def right_turn(e_direction)#use placeholder name e_direction
 end
 # method to turn rover left
 def left_turn(e_direction)#use placeholder name e_direction
-      case left_turn
+      case
       when e_direction == "N"
         @direction = "W"
       when e_direction == "E"
@@ -36,24 +36,33 @@ end
   #
   # method to move rover-pseudo code
   def move(e_direction) #use placeholder name e_direction
-    case move
-      when e_direction == "N" then @y_coordinate += 1
-      when e_direction == "E" then @x_coordinate += 1
-      when e_direction == "W" then @x_coordinate -= 1
-      when e_direction == "S" then @y_coordinate -= 1
+    case
+      when e_direction == "N"
+        @y_coordinate += 1
+      when e_direction == "E"
+        @x_coordinate += 1
+      when e_direction == "W"
+        @x_coordinate -= 1
+      when e_direction == "S"
+        @y_coordinate -= 1
     end
+    puts "your location is #{@x_coordinate}, #{@_coordinate}"
   end
 # Need way to control rover - psuedo code - Use case instead?
     def read_instruction(driving_instructions)
-      case control
-        when driving_instructions == R then right_turn
-        when driving_instructions == L then left_turn
-        when driving_instructions == M then move
+      case
+      when driving_instructions == "R"
+        right_turn(@direction)
+      when driving_instructions == "L"
+        left_turn(@direction)
+      when driving_instructions == "M"
+        move(@direction)
     end
   end
 end
     # This method will create a new instance of Rover class and initializes it through questions
 def create_rover
+        puts "Welcome Rover!"
         puts "What is your maximum x coordinate? - Enter number greater than 0" #Q1
         max_x_coordinate = gets.chomp.to_i
         puts "What is your maximum y coordinate? - Enter number greater than 0" #Q2
@@ -71,9 +80,8 @@ def create_rover
         puts "What do you want to do?:" # Q5
         puts "Enter R for Turn Right, enter L for Turn Left or enter M for Move"
         driving_instructions = gets.chomp.upcase #how does this go to control method?
+        rover_1.read_instruction(driving_instructions)
 end
 
 #Call method to create rover
 create_rover
-#call method to control rover
-rover_1.read_instruction
