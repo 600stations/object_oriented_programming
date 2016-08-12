@@ -51,8 +51,9 @@ end
         when driving_instructions == M then move
     end
   end
-    # Is this in or out of class?? How can I use this for more than 1 rover? A method?
-        #Need to determine the size of Mars grid
+end
+    # This method will create a new instance of Rover class and initializes it through questions
+def create_rover
         puts "What is your maximum x coordinate? - Enter number greater than 0" #Q1
         max_x_coordinate = gets.chomp.to_i
         puts "What is your maximum y coordinate? - Enter number greater than 0" #Q2
@@ -62,12 +63,17 @@ end
         start_x_coordinate = gets.chomp.to_i
         puts "What is your starting y coordinate? - Enter number greater than 0" #Q4
         start_y_coordinate = gets.chomp.to_i
+        puts "What direction are you facing?"
+        facing_direction = gets.chomp.upcase
+        #Instantiate new rovers here
+        rover_1 = Rover.new(start_x_coordinate, start_y_coordinate, facing_direction)
         # Need to ask for user command R, L, M
         puts "What do you want to do?:" # Q5
         puts "Enter R for Turn Right, enter L for Turn Left or enter M for Move"
-        driving_instructions = gets.chomp
+        driving_instructions = gets.chomp.upcase #how does this go to control method?
 end
 
-#Create new rovers here
-rover_1 = Rover.new(" ", " ", "N")
+#Call method to create rover
+create_rover
+#call method to control rover
 rover_1.read_instruction
