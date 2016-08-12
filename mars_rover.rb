@@ -33,7 +33,7 @@ def left_turn(e_direction)#use placeholder name e_direction
       when e_direction == "S"
         @direction = "E"
       end
-      puts "your location is #{@x_coordinate}, #{@y_coordinate}, you are facing #{@direction}"
+        puts "your location is #{@x_coordinate}, #{@y_coordinate}, you are facing #{@direction}"
 end
   #
   # method to move rover-pseudo code
@@ -58,7 +58,7 @@ end
       when driving_instructions == "L"
         left_turn(@direction)
       when driving_instructions == "M"
-        move(@direction)
+        move(@direction)#should add a condition here to prevent off the map exploring
     end
   end
 end
